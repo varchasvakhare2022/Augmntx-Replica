@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-section footer-brand">
           <img src="/augmntxlogo.png" alt="AugmntX" className="footer-brand-logo" />
           <a className="google-play-badge" href="#google-play" aria-label="Get it on Google Play">
-            <img src="/google_play.png" alt="Get it on Google Play" />
+            <img src="/play_store.svg" alt="Get it on Google Play" />
           </a>
         </div>
 
