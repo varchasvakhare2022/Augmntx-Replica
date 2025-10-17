@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import JobCard from './JobCard';
 import './JobListings.css';
 
-const JobListings = ({ filters, onFilterChange }) => {
+const JobListings = ({ filters, onFilterChange, onCountChange }) => {
   const [visibleJobs, setVisibleJobs] = useState(8); // Show 8 jobs initially
   const jobsPerPage = 8;
 
@@ -867,6 +867,11 @@ const JobListings = ({ filters, onFilterChange }) => {
     sorted.sort((a, b) => b.skillMatch - a.skillMatch);
     return sorted;
   }, [filteredJobs]);
+
+  // Notify parent about the current total whenever it changes
+  React.useEffect(() => {
+    if (onCountChange) onCountChange(sortedJobs.length);
+  }, [sortedJobs, onCountChange]);
 
   const displayedJobs = sortedJobs.slice(0, visibleJobs);
   const hasMoreJobs = visibleJobs < sortedJobs.length;

@@ -14,6 +14,7 @@ function App() {
     maxExperience: '',
     searchKeyword: ''
   });
+  const [jobCount, setJobCount] = useState(79);
 
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({
@@ -29,10 +30,12 @@ function App() {
         <div className="content-wrapper">
           <Sidebar 
             filters={filters}
+            jobCount={jobCount}
             onFilterChange={handleFilterChange}
           />
           <JobListings 
             filters={filters}
+            onCountChange={setJobCount}
             onFilterChange={handleFilterChange}
           />
         </div>

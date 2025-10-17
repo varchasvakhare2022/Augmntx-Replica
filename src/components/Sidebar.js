@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 
-const Sidebar = ({ filters, onFilterChange }) => {
+const Sidebar = ({ filters, onFilterChange, jobCount = 79 }) => {
   const [showMoreTech, setShowMoreTech] = useState(false);
   const [techQuery, setTechQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
@@ -68,7 +68,7 @@ const Sidebar = ({ filters, onFilterChange }) => {
   return (
     <aside className="sidebar">
       <div className="job-count">
-        <span className="text-gray-600">79 jobs</span>
+        <span className="text-gray-600">{jobCount} jobs</span>
       </div>
       
       <h2 className="sidebar-title">Sort & Filter</h2>
@@ -151,32 +151,47 @@ const Sidebar = ({ filters, onFilterChange }) => {
           </svg>
           Years of Experience
         </h3>
-        <input
-          type="range"
-          min="0"
-          max="30"
-          value={minExp}
-          onChange={(e) => {
-            const v = Number(e.target.value);
-            const next = Math.min(v, maxExp);
-            setMinExp(next);
-            onFilterChange('minExperience', String(next));
-          }}
-          className="range-slider"
-        />
-        <input
-          type="range"
-          min="0"
-          max="30"
-          value={maxExp}
-          onChange={(e) => {
-            const v = Number(e.target.value);
-            const next = Math.max(v, minExp);
-            setMaxExp(next);
-            onFilterChange('maxExperience', String(next));
-          }}
-          className="range-slider"
-        />
+        {(() => {
+          const minLimit = 0;
+          const maxLimit = 30;
+          const minPercent = ((minExp - minLimit) / (maxLimit - minLimit)) * 100;
+          const maxPercent = ((maxExp - minLimit) / (maxLimit - minLimit)) * 100;
+          return (
+            <div className="dual-range">
+              <div className="slider-track"></div>
+              <div
+                className="slider-range"
+                style={{ left: `${minPercent}%`, width: `${Math.max(0, maxPercent - minPercent)}%` }}
+              ></div>
+              <input
+                type="range"
+                min={minLimit}
+                max={maxLimit}
+                value={minExp}
+                onChange={(e) => {
+                  const v = Number(e.target.value);
+                  const clamped = Math.min(v, maxExp);
+                  setMinExp(clamped);
+                  onFilterChange('minExperience', String(clamped));
+                }}
+                className="range-slider thumb-left"
+              />
+              <input
+                type="range"
+                min={minLimit}
+                max={maxLimit}
+                value={maxExp}
+                onChange={(e) => {
+                  const v = Number(e.target.value);
+                  const clamped = Math.max(v, minExp);
+                  setMaxExp(clamped);
+                  onFilterChange('maxExperience', String(clamped));
+                }}
+                className="range-slider thumb-right"
+              />
+            </div>
+          );
+        })()}
         <div className="experience-range">
           <div className="range-input-group">
             <label className="range-label">Min</label>
