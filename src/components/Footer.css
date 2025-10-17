@@ -1,0 +1,166 @@
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 60px;
+  position: relative;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 60px 20px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
+.footer-brand-logo {
+  width: 260px;
+  height: auto;
+  display: block;
+}
+
+.footer-section h4 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #4263eb;
+}
+
+/* Google Play official badge */
+.google-play-badge { display: inline-block; margin-top: 16px; }
+.google-play-badge img {
+  height: 44px; /* close to reference */
+  width: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.google-play-badge:hover img {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333333;
+  padding: 20px 0;
+}
+
+.footer-bottom-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* removed footer-contact block per request */
+
+.copyright { color: #cccccc; font-size: 14px; margin: 0; text-align: center; }
+
+.brand-inline { color: #ffffff; font-weight: 600; }
+.brand-link { color: #8aa0ff; text-decoration: none; }
+.brand-link:hover { color: #aebcff; }
+
+.legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.legal-links a:hover {
+  color: #4263eb;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background-color: #3b5bdb;
+  color: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(59, 91, 219, 0.4);
+  transition: all 0.2s ease;
+}
+
+.scroll-top-btn:hover {
+  background-color: #2f49b8;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 20px 30px;
+  }
+  .footer-brand-logo { width: 200px; }
+  .google-play-badge img { height: 44px; }
+  .footer-bottom-content {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-bottom-right {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .legal-links {
+    gap: 15px;
+  }
+}
