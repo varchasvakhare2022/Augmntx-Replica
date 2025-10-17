@@ -53,7 +53,7 @@ const JobCard = ({ job }) => {
           <div className="skill-match-bar">
             <div 
               className="skill-match-progress" 
-              style={{ width: `${job.skillMatch}%` }}
+              style={{ width: 0 }}
             ></div>
           </div>
         </div>
