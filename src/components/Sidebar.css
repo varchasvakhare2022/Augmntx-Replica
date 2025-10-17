@@ -1,12 +1,13 @@
 .sidebar {
-  width: 260px;
-  background: white;
-  border-radius: 0;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 12px;
   padding: 20px;
-  box-shadow: none;
+  border: 1px solid #e6edff;
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
   height: fit-content;
   position: sticky;
-  top: 84px;
+  top: 96px;
 }
 
 .job-count {
@@ -27,7 +28,7 @@
 }
 
 .filter-section {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .filter-title {
@@ -68,7 +69,7 @@
 .tech-search {
   margin-bottom: 12px;
   font-size: 14px;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .checkbox-group {
