@@ -17,6 +17,33 @@ body {
   line-height: 1.5;
 }
 
+/* Custom Scrollbar */
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e6edff; /* light blue track */
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8ea7ff; /* blue thumb */
+  border-radius: 12px;
+  border: 3px solid #e6edff; /* creates padding/gutter */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7b96ff;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;           /* thin width */
+  scrollbar-color: #8ea7ff #e6edff; /* thumb track */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
