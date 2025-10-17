@@ -47,15 +47,15 @@ const JobCard = ({ job }) => {
         </div>
 
         <div className="skill-match">
-          <p className="skill-match-text">
-            <a href="#login" className="login-link">Login</a> or <a href="#signup" className="signup-link">sign up</a> to know your profile Match %
-          </p>
           <div className="skill-match-bar">
             <div 
               className="skill-match-progress" 
               style={{ width: 0 }}
             ></div>
           </div>
+          <p className="skill-match-text">
+            <a href="#login" className="login-link">Login</a> or <a href="#signup" className="signup-link">sign up</a> to know your profile Match %
+          </p>
         </div>
 
         <div className="job-details">

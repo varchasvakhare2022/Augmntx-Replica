@@ -46,18 +46,18 @@
 
 .nav-link {
   text-decoration: none;
-  color: #4f46e5;
+  color: #111827; /* black-ish */
   font-weight: 500;
   font-size: 15px;
   transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #4338ca;
+  color: #111827;
 }
 
 .nav-link.active {
-  color: #4338ca;
+  color: #111827;
   font-weight: 600;
 }
 
@@ -67,12 +67,10 @@
 
 .dropdown-arrow {
   margin-left: 4px;
-  transition: transform 0.2s ease;
+  color: #4f46e5; /* blue arrow */
+  transition: none;
 }
 
-.dropdown:hover .dropdown-arrow {
-  transform: rotate(180deg);
-}
 
 .mobile-menu-toggle {
   display: none;

@@ -115,6 +115,12 @@
   gap: 12px;
 }
 
+.range-slider {
+  width: 100%;
+  margin: 6px 0 10px;
+  accent-color: #4f46e5;
+}
+
 .range-input-group {
   flex: 1;
 }

@@ -3,6 +3,10 @@ import './Sidebar.css';
 
 const Sidebar = ({ filters, onFilterChange }) => {
   const [showMoreTech, setShowMoreTech] = useState(false);
+  const [techQuery, setTechQuery] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
+  const [minExp, setMinExp] = useState(Number(filters.minExperience || 0));
+  const [maxExp, setMaxExp] = useState(Number(filters.maxExperience || 30));
 
   const technologies = [
     { name: 'Python', count: 13 },
@@ -48,7 +52,10 @@ const Sidebar = ({ filters, onFilterChange }) => {
     { name: 'LLM', count: 2 }
   ];
 
-  const visibleTechnologies = showMoreTech ? technologies : technologies.slice(0, 5);
+  const filteredTechnologies = technologies.filter(t =>
+    t.name.toLowerCase().includes(techQuery.toLowerCase())
+  );
+  const visibleTechnologies = showMoreTech ? filteredTechnologies : filteredTechnologies.slice(0, 5);
 
   const handleTechnologyChange = (techName) => {
     const updatedTechs = filters.technologies.includes(techName)
@@ -107,6 +114,8 @@ const Sidebar = ({ filters, onFilterChange }) => {
         <input
           type="text"
           placeholder="Search technologies..."
+          value={techQuery}
+          onChange={(e) => setTechQuery(e.target.value)}
           className="input tech-search"
         />
         <div className="checkbox-group">
@@ -142,14 +151,45 @@ const Sidebar = ({ filters, onFilterChange }) => {
           </svg>
           Years of Experience
         </h3>
+        <input
+          type="range"
+          min="0"
+          max="30"
+          value={minExp}
+          onChange={(e) => {
+            const v = Number(e.target.value);
+            const next = Math.min(v, maxExp);
+            setMinExp(next);
+            onFilterChange('minExperience', String(next));
+          }}
+          className="range-slider"
+        />
+        <input
+          type="range"
+          min="0"
+          max="30"
+          value={maxExp}
+          onChange={(e) => {
+            const v = Number(e.target.value);
+            const next = Math.max(v, minExp);
+            setMaxExp(next);
+            onFilterChange('maxExperience', String(next));
+          }}
+          className="range-slider"
+        />
         <div className="experience-range">
           <div className="range-input-group">
             <label className="range-label">Min</label>
             <input
               type="number"
               placeholder="0"
-              value={filters.minExperience}
-              onChange={(e) => onFilterChange('minExperience', e.target.value)}
+              value={minExp}
+              onChange={(e) => {
+                const v = Number(e.target.value || 0);
+                const next = Math.min(v, maxExp);
+                setMinExp(next);
+                onFilterChange('minExperience', String(next));
+              }}
               className="input range-input"
             />
           </div>
@@ -158,8 +198,13 @@ const Sidebar = ({ filters, onFilterChange }) => {
             <input
               type="number"
               placeholder="10+"
-              value={filters.maxExperience}
-              onChange={(e) => onFilterChange('maxExperience', e.target.value)}
+              value={maxExp}
+              onChange={(e) => {
+                const v = Number(e.target.value || 0);
+                const next = Math.max(v, minExp);
+                setMaxExp(next);
+                onFilterChange('maxExperience', String(next));
+              }}
               className="input range-input"
             />
           </div>
@@ -174,6 +219,13 @@ const Sidebar = ({ filters, onFilterChange }) => {
           </svg>
           Locations
         </h3>
+        <input
+          type="text"
+          placeholder="Search locations..."
+          value={locationQuery}
+          onChange={(e) => setLocationQuery(e.target.value)}
+          className="input tech-search"
+        />
         <div className="checkbox-group">
           {[
             { name: 'Worldwide', count: 34 },
@@ -181,10 +233,20 @@ const Sidebar = ({ filters, onFilterChange }) => {
             { name: 'India', count: 6 },
             { name: 'world wide', count: 4 },
             { name: 'worldwide', count: 2 }
-          ].map(location => (
+          ]
+            .filter(loc => loc.name.toLowerCase().includes(locationQuery.toLowerCase()))
+            .map(location => (
             <label key={location.name} className="checkbox-label">
               <input
                 type="checkbox"
+                checked={filters.locations && filters.locations.includes(location.name)}
+                onChange={() => {
+                  const current = filters.locations || [];
+                  const selected = current.includes(location.name)
+                    ? current.filter(l => l !== location.name)
+                    : [...current, location.name];
+                  onFilterChange('locations', selected);
+                }}
                 className="checkbox-input"
               />
               <span className="checkbox-text">

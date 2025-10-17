@@ -834,6 +834,13 @@ const JobListings = ({ filters, onFilterChange }) => {
       });
     }
 
+    // Filter by locations
+    if (filters.locations && filters.locations.length > 0) {
+      filtered = filtered.filter(job =>
+        filters.locations.some(loc => job.location.toLowerCase().includes(loc.toLowerCase()))
+      );
+    }
+
     // Filter by date posted
     if (filters.datePosted !== 'all') {
       filtered = filtered.filter(job => {

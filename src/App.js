@@ -9,6 +9,7 @@ function App() {
   const [filters, setFilters] = useState({
     datePosted: 'all',
     technologies: [],
+    locations: [],
     minExperience: '',
     maxExperience: '',
     searchKeyword: ''
