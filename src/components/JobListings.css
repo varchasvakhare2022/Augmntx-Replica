@@ -16,7 +16,7 @@
   width: 100%;
   padding: 14px 20px;
   border: 1px solid #e6edff;
-  border-radius: 9999px;
+  border-radius: 12px; /* rectangle with rounded corners */
   font-size: 14px;
   background: #ffffff;
   box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
