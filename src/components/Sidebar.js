@@ -125,12 +125,12 @@ const Sidebar = ({ filters, onFilterChange }) => {
           ))}
         </div>
         {!showMoreTech && (
-          <button 
-            className="show-more-btn"
+          <span 
+            className="show-more-link"
             onClick={() => setShowMoreTech(true)}
           >
-            SHOW MORE
-          </button>
+            Show more
+          </span>
         )}
       </div>
 

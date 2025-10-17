@@ -99,20 +99,16 @@
   user-select: none;
 }
 
-.show-more-btn {
-  background: none;
-  border: none;
-  color: #2563eb;
-  font-size: 12px;
+.show-more-link {
+  display: inline-block;
+  color: #4f46e5;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   margin-top: 8px;
-  text-transform: uppercase;
 }
 
-.show-more-btn:hover {
-  text-decoration: underline;
-}
+.show-more-link:hover { text-decoration: underline; }
 
 .experience-range {
   display: flex;
