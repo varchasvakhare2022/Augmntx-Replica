@@ -5,16 +5,15 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
-  color: #374151;
+  background-color: #f5f8ff; /* very light blue like ref */
+  color: #111827; /* gray-900 */
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1.55;
+  font-size: 16px;
 }
 
 /* Custom Scrollbar */
@@ -52,7 +51,7 @@ code {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .btn {

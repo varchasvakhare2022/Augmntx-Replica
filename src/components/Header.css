@@ -3,8 +3,9 @@
   top: 0;
   left: 0;
   right: 0;
-  background: #f8fafc;
-  border-bottom: none;
+  background: #ffffffcf;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e6edff;
   z-index: 1000;
 }
 
@@ -15,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 72px;
 }
 
 .logo {
@@ -45,18 +46,18 @@
 
 .nav-link {
   text-decoration: none;
-  color: #4b5563;
+  color: #4f46e5;
   font-weight: 500;
   font-size: 15px;
   transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #1e3a8a;
+  color: #4338ca;
 }
 
 .nav-link.active {
-  color: #1e3a8a;
+  color: #4338ca;
   font-weight: 600;
 }
 
