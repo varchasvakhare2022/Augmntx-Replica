@@ -60,7 +60,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p className="copyright">© 2022 - {currentYear} <span className="brand-inline">AugmntX</span> — Labor Omnia Vincit ⚡ by <a href="#superlabs" className="brand-link">SuperLabs</a></p>
+          <p className="copyright">© 2022 - {currentYear} <span className="brand-inline">AugmntX</span> — Labor Omnia Vincit ⚡ by <a href="https://superlabs.co/" target="_blank" rel="noopener noreferrer" className="brand-link">SuperLabs</a></p>
           <div className="legal-links">
             <a href="#terms">Terms of Use</a>
             <a href="#privacy">Privacy Policy</a>
